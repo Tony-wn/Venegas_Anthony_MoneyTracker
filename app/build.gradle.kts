@@ -7,6 +7,9 @@ android {
     compileSdk {
         version = release(36)
     }
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.venegas.moneytracker"
@@ -14,6 +17,8 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "EXCHANGE_API_KEY", "\"${providers.gradleProperty("EXCHANGE_RATE_API_KEY").get()}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

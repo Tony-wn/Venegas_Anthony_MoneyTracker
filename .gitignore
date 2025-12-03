@@ -13,3 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Gradle files
+.gradle/
+build/
+local.properties
+
+# Archivos con API keys
+gradle.properties
+*.properties
