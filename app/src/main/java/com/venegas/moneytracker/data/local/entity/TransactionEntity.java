@@ -8,11 +8,11 @@ public class TransactionEntity {
     @PrimaryKey(autoGenerate = true)
     public long id;
 
-    private String type; // "INCOME" o "EXPENSE"
+    private String type; //ingreso o gasto
     private double amount;
     private String category;
     private String description;
-    private long date; // timestamp
+    private long date;
     private String paymentMethod;
     private long createdAt;
 
