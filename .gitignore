@@ -1,6 +1,8 @@
 *.iml
 .gradle
 /local.properties
+/gradle.properties
+*.properties
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -14,10 +16,5 @@
 .cxx
 local.properties
 # Gradle files
-.gradle/
-build/
-local.properties
 
-# Archivos con API keys
-gradle.properties
-*.properties
+
