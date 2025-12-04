@@ -18,7 +18,11 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "EXCHANGE_API_KEY", "\"${providers.gradleProperty("EXCHANGE_RATE_API_KEY").get()}\"")
+        buildConfigField(
+            "String",
+            "EXCHANGE_API_KEY",
+            "\"${providers.gradleProperty("EXCHANGE_RATE_API_KEY").get()}\""
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
