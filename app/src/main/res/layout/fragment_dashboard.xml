@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/md_theme_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_normal">
+
+        <!-- Greeting -->
+        <TextView
+            android:id="@+id/tv_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_greeting"
+            android:textSize="@dimen/text_size_large"
+            android:textColor="@color/md_theme_onBackground"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Hola, Anthony" />
+
+        <!-- Current Month -->
+        <TextView
+            android:id="@+id/tv_current_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/md_theme_onSurfaceVariant"
+            app:layout_constraintTop_toBottomOf="@id/tv_greeting"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Diciembre 2024" />
+
+        <!-- Balance Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_balance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/md_theme_primaryContainer"
+            app:layout_constraintTop_toBottomOf="@id/tv_current_month"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:id="@+id/tv_balance_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/current_balance"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="@color/md_theme_onPrimaryContainer"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_balance_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:textSize="@dimen/text_size_xxlarge"
+                    android:textColor="@color/md_theme_onPrimaryContainer"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tv_balance_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="$5,250.00" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Income and Expense Cards -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_income"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_small"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintTop_toBottomOf="@id/card_balance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/card_expense"
+            app:layout_constraintWidth_percent="0.48">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_normal">
+
+                <ImageView
+                    android:id="@+id/iv_income_icon"
+                    android:layout_width="@dimen/icon_size_normal"
+                    android:layout_height="@dimen/icon_size_normal"
+                    android:src="@drawable/ic_income"
+                    app:tint="@color/income_green"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_income_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/total_income"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    app:layout_constraintTop_toBottomOf="@id/iv_income_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_income_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:textSize="@dimen/text_size_large"
+                    android:textColor="@color/income_green"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tv_income_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="$8,000" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_expense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintTop_toTopOf="@id/card_income"
+            app:layout_constraintStart_toEndOf="@id/card_income"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.48">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_normal">
+
+                <ImageView
+                    android:id="@+id/iv_expense_icon"
+                    android:layout_width="@dimen/icon_size_normal"
+                    android:layout_height="@dimen/icon_size_normal"
+                    android:src="@drawable/ic_expense"
+                    app:tint="@color/expense_red"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_expense_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/total_expenses"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    app:layout_constraintTop_toBottomOf="@id/iv_expense_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_expense_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:textSize="@dimen/text_size_large"
+                    android:textColor="@color/expense_red"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tv_expense_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="$2,750" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Budget Progress Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_budget"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintTop_toBottomOf="@id/card_income"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:id="@+id/tv_budget_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/budget_progress"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_budget_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_large"
+                    android:textColor="@color/md_theme_primary"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="@id/tv_budget_title"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_budget_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="34%" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progress_budget"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    app:trackThickness="12dp"
+                    app:trackCornerRadius="6dp"
+                    app:indicatorColor="@color/md_theme_primary"
+                    app:trackColor="@color/md_theme_surfaceVariant"
+                    app:layout_constraintTop_toBottomOf="@id/tv_budget_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:progress="34" />
+
+                <TextView
+                    android:id="@+id/tv_remaining_budget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    app:layout_constraintTop_toBottomOf="@id/progress_budget"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Restante: $5,250" />
+
+                <TextView
+                    android:id="@+id/tv_days_remaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    app:layout_constraintTop_toTopOf="@id/tv_remaining_budget"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_remaining_budget"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="25 días restantes" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Recent Transactions Section -->
+        <TextView
+            android:id="@+id/tv_recent_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/recent_transactions"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/md_theme_onBackground"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/card_budget"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_all"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/md_theme_primary"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="@id/tv_recent_title"
+            app:layout_constraintBottom_toBottomOf="@id/tv_recent_title"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- RecyclerView for Recent Transactions -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recent_transactions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_recent_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_transaction" />
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/layout_empty_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/spacing_large"
+            app:layout_constraintTop_toBottomOf="@id/tv_recent_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📊"
+                android:textSize="64sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="@string/no_transactions"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/md_theme_onSurfaceVariant" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="@string/no_transactions_message"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+                android:alpha="0.7" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
