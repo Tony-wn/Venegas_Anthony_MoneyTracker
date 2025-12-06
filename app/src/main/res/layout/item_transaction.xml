@@ -2,139 +2,103 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardTransaction"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    app:cardCornerRadius="12dp"
+    android:layout_marginBottom="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/card_radius"
     app:cardElevation="2dp"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?attr/selectableItemBackground">
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/md_theme_surface">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="@dimen/spacing_normal">
 
         <!-- Category Icon Background -->
-        <View
-            android:id="@+id/viewIconBackground"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_icon_background"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/circle_background"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:cardBackgroundColor="@color/chart_1">
 
-        <!-- Category Emoji -->
-        <TextView
-            android:id="@+id/tvCategoryEmoji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🍔"
-            android:textSize="24sp"
-            app:layout_constraintTop_toTopOf="@id/viewIconBackground"
-            app:layout_constraintBottom_toBottomOf="@id/viewIconBackground"
-            app:layout_constraintStart_toStartOf="@id/viewIconBackground"
-            app:layout_constraintEnd_toEndOf="@id/viewIconBackground"/>
+            <!-- Category Icon/Emoji -->
+            <TextView
+                android:id="@+id/tv_category_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="24sp"
+                tools:text="🍔" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Category Name -->
         <TextView
-            android:id="@+id/tvCategory"
+            android:id="@+id/tv_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="8dp"
-            android:text="Alimentación"
-            android:textSize="16sp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/md_theme_onSurface"
             android:textStyle="bold"
-            android:textColor="@color/text_primary"
             android:maxLines="1"
             android:ellipsize="end"
-            app:layout_constraintTop_toTopOf="@id/viewIconBackground"
-            app:layout_constraintStart_toEndOf="@id/viewIconBackground"
-            app:layout_constraintEnd_toStartOf="@id/tvAmount"/>
+            app:layout_constraintTop_toTopOf="@id/card_icon_background"
+            app:layout_constraintStart_toEndOf="@id/card_icon_background"
+            app:layout_constraintEnd_toStartOf="@id/tv_amount"
+            tools:text="Alimentación" />
 
         <!-- Description -->
         <TextView
-            android:id="@+id/tvDescription"
+            android:id="@+id/tv_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:text="Descripción"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/md_theme_onSurfaceVariant"
             android:maxLines="1"
             android:ellipsize="end"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvCategory"
-            app:layout_constraintStart_toEndOf="@id/viewIconBackground"
-            app:layout_constraintEnd_toStartOf="@id/tvAmount"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_category"
+            app:layout_constraintStart_toStartOf="@id/tv_category"
+            app:layout_constraintEnd_toEndOf="@id/tv_category"
+            tools:text="Almuerzo restaurante" />
 
-        <!-- Date and Payment Method -->
-        <LinearLayout
-            android:id="@+id/layoutInfo"
+        <!-- Date -->
+        <TextView
+            android:id="@+id/tv_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/tvDescription"
-            app:layout_constraintStart_toEndOf="@id/viewIconBackground"
-            app:layout_constraintEnd_toStartOf="@id/tvAmount"
-            app:layout_constraintBottom_toBottomOf="@id/viewIconBackground">
-
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="01/12/2024"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="•"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"/>
-
-            <TextView
-                android:id="@+id/tvPaymentMethod"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Efectivo"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"/>
-
-        </LinearLayout>
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:textSize="@dimen/text_size_tiny"
+            android:textColor="@color/md_theme_onSurfaceVariant"
+            app:layout_constraintTop_toBottomOf="@id/tv_description"
+            app:layout_constraintStart_toStartOf="@id/tv_category"
+            app:layout_constraintEnd_toEndOf="@id/tv_category"
+            app:layout_constraintBottom_toBottomOf="@id/card_icon_background"
+            tools:text="05 Dic 2024" />
 
         <!-- Amount -->
         <TextView
-            android:id="@+id/tvAmount"
+            android:id="@+id/tv_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$150.00"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
-            android:textColor="@color/expense"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <!-- Type Indicator -->
-        <View
-            android:id="@+id/viewTypeIndicator"
-            android:layout_width="4dp"
-            android:layout_height="0dp"
-            android:background="@color/expense"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="@id/card_icon_background"
+            app:layout_constraintBottom_toBottomOf="@id/card_icon_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="-$25.50"
+            tools:textColor="@color/expense_red" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

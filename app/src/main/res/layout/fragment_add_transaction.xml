@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/md_theme_background">
+    android:background="@color/md_theme_background"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_normal">
 
-        <!-- Transaction Type Toggle -->
+        <!-- ... (otros campos sin cambios hasta el método de pago) ... -->
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/toggle_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:singleSelection="true"
-            app:selectionRequired="true"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:selectionRequired="true"
+            app:singleSelection="true">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_income"
@@ -52,11 +51,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:hint="@string/amount"
-            app:prefixText="$ "
             app:helperText="Ingrese el monto de la transacción"
-            app:layout_constraintTop_toBottomOf="@id/toggle_type"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/toggle_type"
+            app:prefixText="$ ">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_amount"
@@ -76,9 +75,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
             android:hint="@string/category"
-            app:layout_constraintTop_toBottomOf="@id/til_amount"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/til_amount">
 
             <AutoCompleteTextView
                 android:id="@+id/act_category"
@@ -100,9 +99,9 @@
             app:counterEnabled="true"
             app:counterMaxLength="100"
             app:helperText="Opcional"
-            app:layout_constraintTop_toBottomOf="@id/til_category"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/til_category">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_description"
@@ -124,17 +123,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
             android:hint="@string/date"
-            app:layout_constraintTop_toBottomOf="@id/til_description"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/til_description">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:focusable="false"
                 android:clickable="true"
+                android:focusable="false"
+                android:inputType="none"
                 android:textSize="@dimen/text_size_normal" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -147,9 +146,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
             android:hint="@string/payment_method"
-            app:layout_constraintTop_toBottomOf="@id/til_date"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/til_date">
 
             <AutoCompleteTextView
                 android:id="@+id/act_payment_method"
@@ -160,7 +159,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Currency Converter Card (Optional) -->
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_converter"
             android:layout_width="0dp"
@@ -168,11 +167,11 @@
             android:layout_marginTop="@dimen/spacing_medium"
             app:cardCornerRadius="@dimen/card_radius"
             app:cardElevation="2dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/md_theme_outline"
-            app:layout_constraintTop_toBottomOf="@id/til_payment_method"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/til_payment_method"
+            app:strokeColor="@color/md_theme_outline"
+            app:strokeWidth="1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -184,11 +183,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/currency_converter"
-                    android:textSize="@dimen/text_size_normal"
                     android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/text_size_normal"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- ===== INICIO DE CAMBIOS ===== -->
+
+                <!-- Target Currency Spinner -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_target_currency"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:hint="@string/convert"
+                    app:layout_constraintEnd_toStartOf="@id/btn_convert"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_converter_title">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/act_target_currency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_convert"
@@ -197,28 +219,30 @@
                     android:layout_height="wrap_content"
                     android:text="@string/convert"
                     android:textSize="@dimen/text_size_small"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@id/til_target_currency"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/til_target_currency" />
 
                 <TextView
                     android:id="@+id/tv_converted_amount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
-                    android:textSize="@dimen/text_size_small"
                     android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/text_size_small"
                     android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@id/tv_converter_title"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:visibility="visible"
-                    tools:text="≈ $100.00 USD" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/til_target_currency"
+                    tools:text="≈ $100.00 USD"
+                    tools:visibility="visible" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Action Buttons -->
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_save"
             android:layout_width="0dp"
@@ -228,9 +252,9 @@
             android:text="@string/save"
             android:textSize="@dimen/text_size_medium"
             app:cornerRadius="@dimen/button_radius"
-            app:layout_constraintTop_toBottomOf="@id/card_converter"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_converter"
             app:layout_constraintWidth_percent="0.48" />
 
         <com.google.android.material.button.MaterialButton
@@ -242,12 +266,11 @@
             android:text="@string/cancel"
             android:textSize="@dimen/text_size_medium"
             app:cornerRadius="@dimen/button_radius"
-            app:layout_constraintTop_toTopOf="@id/btn_save"
-            app:layout_constraintStart_toEndOf="@id/btn_save"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_save"
+            app:layout_constraintTop_toTopOf="@id/btn_save"
             app:layout_constraintWidth_percent="0.48" />
 
-        <!-- Delete Button (Solo para edición) -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_delete"
             style="@style/Widget.Material3.Button.TextButton"
@@ -258,9 +281,9 @@
             android:textColor="@color/expense_red"
             android:textSize="@dimen/text_size_normal"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/btn_save"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_save"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

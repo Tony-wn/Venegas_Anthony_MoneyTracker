@@ -1,3 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Venegas_Anthony_MoneyTracker</string>
+    <string name="app_name">Money Tracker</string>
+
+    <!-- Setup Screen -->
+    <string name="setup_title">Configuración Inicial</string>
+    <string name="setup_subtitle">Configura tu perfil financiero</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_monthly_budget">Presupuesto Mensual</string>
+    <string name="hint_currency">Moneda</string>
+    <string name="hint_start_day">Día de Inicio del Mes</string>
+    <string name="btn_start">Comenzar</string>
+    <string name="setup_welcome">¡Bienvenido!</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_greeting">Hola, %1$s</string>
+    <string name="current_balance">Balance Actual</string>
+    <string name="total_income">Ingresos</string>
+    <string name="total_expenses">Gastos</string>
+    <string name="budget_progress">Progreso del Presupuesto</string>
+    <string name="remaining_budget">Presupuesto Restante</string>
+    <string name="days_remaining">%1$d días restantes</string>
+    <string name="recent_transactions">Transacciones Recientes</string>
+    <string name="view_all">Ver todas</string>
+
+    <!-- Transactions -->
+    <string name="transactions_title">Transacciones</string>
+    <string name="add_transaction">Nueva Transacción</string>
+    <string name="edit_transaction">Editar Transacción</string>
+    <string name="transaction_type">Tipo</string>
+    <string name="income">Ingreso</string>
+    <string name="expense">Gasto</string>
+    <string name="amount">Monto</string>
+    <string name="category">Categoría</string>
+    <string name="description">Descripción</string>
+    <string name="date">Fecha</string>
+    <string name="payment_method">Método de Pago</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="filter">Filtrar</string>
+    <string name="no_transactions">No hay transacciones</string>
+    <string name="no_transactions_message">Comienza agregando tu primera transacción</string>
+
+    <!-- Statistics -->
+    <string name="statistics_title">Estadísticas</string>
+    <string name="expenses_by_category">Gastos por Categoría</string>
+    <string name="daily_average">Promedio Diario</string>
+    <string name="highest_expense">Gasto Mayor</string>
+    <string name="total_transactions">Total de Transacciones</string>
+    <string name="this_month">Este Mes</string>
+    <string name="last_month">Mes Anterior</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Configuración</string>
+    <string name="profile_settings">Perfil</string>
+    <string name="budget_settings">Presupuesto</string>
+    <string name="alert_threshold">Umbral de Alerta (%)</string>
+    <string name="currency_settings">Moneda</string>
+    <string name="update_exchange_rates">Actualizar Tasas de Cambio</string>
+    <string name="data_management">Gestión de Datos</string>
+    <string name="reset_data">Restablecer Datos</string>
+    <string name="reset_data_warning">¿Estás seguro? Esta acción no se puede deshacer.</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+
+    <!-- Currency Converter -->
+    <string name="currency_converter">Convertidor de Moneda</string>
+    <string name="from_currency">De</string>
+    <string name="to_currency">A</string>
+    <string name="convert">Convertir</string>
+    <string name="exchange_rate">Tasa de Cambio</string>
+
+    <!-- Validation Messages -->
+    <string name="error_empty_field">Este campo es obligatorio</string>
+    <string name="error_invalid_amount">Monto inválido</string>
+    <string name="error_invalid_day">Día debe estar entre 1 y 31</string>
+    <string name="error_network">Error de conexión. Verifica tu internet.</string>
+
+    <!-- Success Messages -->
+    <string name="transaction_added">Transacción agregada</string>
+    <string name="transaction_updated">Transacción actualizada</string>
+    <string name="transaction_deleted">Transacción eliminada</string>
+    <string name="settings_saved">Configuración guardada</string>
+    <string name="data_reset_success">Datos restablecidos</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Inicio</string>
+    <string name="nav_transactions">Transacciones</string>
+    <string name="nav_statistics">Estadísticas</string>
+    <string name="nav_settings">Configuración</string>
 </resources>

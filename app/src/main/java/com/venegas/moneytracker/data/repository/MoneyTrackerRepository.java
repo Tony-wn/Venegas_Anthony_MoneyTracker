@@ -2,6 +2,7 @@ package com.venegas.moneytracker.data.repository;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.venegas.moneytracker.BuildConfig;
@@ -17,6 +18,8 @@ import com.venegas.moneytracker.data.remote.model.ExchangeRateResponse;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MoneyTrackerRepository {
 
@@ -32,8 +35,7 @@ public class MoneyTrackerRepository {
         categoryDao = database.categoryDao();
         allTransactions = transactionDao.getAllTransactions();
 
-        // --- AÑADIDO ---
-        // Obtiene la clave desde BuildConfig al inicializar el repositorio.
+
         this.apiKey = BuildConfig.EXCHANGE_API_KEY;
     }
 
@@ -111,8 +113,29 @@ public class MoneyTrackerRepository {
         return categoryDao.getAllCategories();
     }
 
-    public Call<ExchangeRateResponse> getExchangeRates(String currency) {
-        return RetrofitClient.getInstance().getApi().getExchangeRates(apiKey, currency);
+    public void getExchangeRates(String baseCurrency, ApiCallback<ExchangeRateResponse> callback) {
+        Call<ExchangeRateResponse> call = RetrofitClient.getInstance().getApi().getExchangeRates(apiKey, baseCurrency);
+
+        call.enqueue(new Callback<ExchangeRateResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ExchangeRateResponse> call, @NonNull Response<ExchangeRateResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    callback.onSuccess(response.body());
+                } else {
+                    callback.onError("Error del servidor: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ExchangeRateResponse> call, @NonNull Throwable t) {
+                callback.onError("Fallo de red: " + t.getMessage());
+            }
+        });
+    }
+
+    public interface ApiCallback<T> {
+        void onSuccess(T response);
+        void onError(String message);
     }
 
     public interface OnTransactionInsertedListener {
